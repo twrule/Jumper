@@ -1,0 +1,23 @@
+.grid{
+	width: 400px;
+	height: 600px;
+	background-color: yellow;
+	/*position will be relative to browser window*/
+	position: relative;
+}
+
+.jumper{
+	width: 60px;
+	height: 85px;
+	background-color: red;
+	/*position will be absolute inside grid itself*/
+	position: absolute;
+}
+
+.platform{
+	width: 85px;
+	height: 15px;
+	background-color: green;
+	/*position will be absolute inside grid itself*/
+	position: absolute;
+}
