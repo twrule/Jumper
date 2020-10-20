@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	function createJumper() {
 		grid.appendChild(jumper);
 		jumper.classList.add('jumper');
+		jumperLeftSpace = platforms[0].left;
 		jumper.style.left = jumperLeftSpace + 'px';
 		jumper.style.bottom = jumperBottomSpace + 'px';
 	}
@@ -59,10 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		clearInterval(upTimerID);
 		downTimerID = setInterval(function(){
 			jumperBottomSpace -= 5;
-			jumper.style.bottom = jumperBottomSpace + 'px'
-		},30)
+			jumper.style.bottom = jumperBottomSpace + 'px';
+
+			if(jumperBottomSpace <= 0){
+				gameOver();		
+			}
+		}, 30);
 	}
 	
+	function gameOver(){
+		isGameOver = true;
+		clearInterval(upTimerID);
+		clearInterval(downTimerID);
+	}
 
 	function movePlatforms(){
 		if(jumperBottomSpace > 200){
@@ -78,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	function start(){
 		if(isGameOver == false){
-			createJumper();
 			createPlatforms();
+			createJumper();
 			setInterval(movePlatforms, 30);
 			jump();
 		}
