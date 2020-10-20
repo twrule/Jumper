@@ -1,5 +1,7 @@
 .grid{
 	width: 400px;
+	font-size: 200px;
+	text-align: center;
 	height: 600px;
 	background-color: yellow;
 	/*position will be relative to browser window*/
